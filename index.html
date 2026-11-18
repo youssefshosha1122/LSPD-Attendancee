@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSPD | Attendance Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="lightbar">
+        <div class="light red-light"></div>
+        <div class="light blue-light"></div>
+    </div>
+
+    <div class="container">
+
+      
+<header class="header">
+  
+<div class="badge-logo">
+    <div class="badge-inner">
+        <span class="badge-star">★</span>
+        <strong>LSPD</strong>
+        <span class="badge-divider"></span>
+        <small>BOLETO</small>
+        <small>COUNTY</small>
+        <div class="badge-bottom">★ ★ ★</div>
+    </div>
+</div>
+
+
+    <div class="header-info">
+        <h1>LSPD BOLETO COUNTY</h1>
+        <p>ATTENDANCE CONTROL SYSTEM</p>
+
+        <div class="system-status">
+            <span class="online-dot"></span>
+            SYSTEM ONLINE
+        </div>
+    </div>
+
+    <div class="clock" id="liveClock">00:00:00</div>
+    <div class="developer-info">
+    <p>DEVELOPED BY</p>
+    <strong>صقر الجبالي</strong>
+    <p>UNDER SUPERVISION</p>
+    <strong>علي العنزي</strong>
+    
+</div>
+</header>
+
+
+        <div class="welcome">
+            <div>
+                <h2>OFFICER ATTENDANCE PORTAL</h2>
+                <p>Employee duty records and attendance management</p>
+            </div>
+            <div class="portal-tag">INTERNAL SYSTEM</div>
+        </div>
+
+        <main class="dashboard">
+
+            <!-- Message Input -->
+            <section class="panel input-panel">
+
+                <div class="panel-title">
+                    <span class="title-icon">▣</span>
+                    <h2>MESSAGE INPUT</h2>
+                </div>
+
+                <p class="description">
+                    Paste the Discord attendance message below.
+                </p>
+
+                <label for="discordMessage">DISCORD MESSAGE CONTENT</label>
+
+                <textarea
+                    id="discordMessage"
+                    placeholder="Paste Discord message here..."
+                ></textarea>
+
+                <label for="messageLink" class="link-label">
+                    DISCORD MESSAGE LINK
+                </label>
+
+                <input
+                    id="messageLink"
+                    class="link-input"
+                    type="url"
+                    placeholder="https://discord.com/channels/..."
+                    dir="ltr"
+                >
+
+                <button id="extractBtn" class="primary-btn">
+                    <span>⌕</span> EXTRACT RECORD
+                </button>
+
+                <div id="messageStatus" class="message-status">
+                    <span class="status-dot"></span>
+                    WAITING FOR INPUT...
+                </div>
+
+            </section>
+
+            <!-- Attendance Report -->
+            <section class="panel report-panel">
+
+                <div class="panel-title">
+                    <span class="title-icon">▤</span>
+                    <h2>OFFICER DUTY REPORT</h2>
+                </div>
+
+                <div class="report-fields">
+
+                    <div class="field">
+                        <label>اسم الموظف</label>
+                        <input id="employeeName" placeholder="اسم الموظف" dir="rtl">
+                    </div>
+
+                    <div class="field">
+                        <label>الرتبة الحالية</label>
+                        <input id="rank" placeholder="الرتبة" dir="rtl">
+                    </div>
+
+                    <div class="field">
+                        <label>تسجيل الدخول</label>
+                        <input id="loginTime" placeholder="وقت الدخول" dir="rtl">
+                    </div>
+
+                    <div class="field">
+                        <label>تسجيل الخروج</label>
+                        <input id="logoutTime" placeholder="وقت الخروج" dir="rtl">
+                    </div>
+
+                    <div class="field">
+                        <label>مجموع وقت المباشرة</label>
+                        <input id="workDuration" placeholder="مدة المباشرة" dir="rtl">
+                    </div>
+
+                    <div class="field">
+                        <label>مجموع وقت اليوم</label>
+                        <input id="dailyTotal" placeholder="مجموع اليوم" dir="rtl">
+                    </div>
+
+                    <div class="field">
+                        <label>مجموع وقت الأسبوع</label>
+                        <input id="weeklyTotal" placeholder="مجموع الأسبوع" dir="rtl">
+                    </div>
+
+                    <div class="field">
+                        <label>مجموع وقت الشهر</label>
+                        <input id="monthlyTotal" placeholder="مجموع الشهر" dir="rtl">
+                    </div>
+
+                    <div class="field full-width">
+                        <label>صورة الحالة إن وجدت</label>
+                        <input id="statusImage" placeholder="رابط الصورة" dir="ltr">
+                    </div>
+
+                    <div class="field full-width">
+                        <label>تاريخ اليوم</label>
+                        <input id="reportDate" placeholder="التاريخ" dir="rtl">
+                    </div>
+
+                </div>
+
+                <div class="report-actions">
+                    <button id="copyBtn" class="copy-btn">
+                        ▣ COPY DUTY REPORT
+                    </button>
+
+                    <button id="clearBtn" class="clear-btn">
+                        CLEAR FORM
+                    </button>
+                </div>
+
+            </section>
+
+        </main>
+
+        
+<footer>
+    <div class="footer-line"></div>
+
+    <p>LSPD BOLETO COUNTY</p>
+    <span>AUTHORIZED PERSONNEL ONLY</span>
+
+   
+
+    <p class="footer-version">LSPD ATTENDANCE SYSTEM v1.0</p>
+</footer>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
