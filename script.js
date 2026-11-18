@@ -141,7 +141,42 @@ $("monthlyTotal").value = "0";
 
     $("statusImage").value = imageMatch ? imageMatch[0] : "";
 
-    $("reportDate").value = new Date().toLocaleDateString("en-GB");
+    // Detect if attendance crossed midnight
+function timeToMinutes(time) {
+    const match = time.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+
+    if (!match) return null;
+
+    let hours = Number(match[1]);
+    const minutes = Number(match[2]);
+    const period = match[3].toUpperCase();
+
+    if (period === "PM" && hours !== 12) hours += 12;
+    if (period === "AM" && hours === 12) hours = 0;
+
+    return hours * 60 + minutes;
+}
+
+const today = new Date();
+const tomorrow = new Date(today);
+
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+const loginMinutes = timeToMinutes(login);
+const logoutMinutes = timeToMinutes(logout);
+
+const firstDate = today.toLocaleDateString("en-GB");
+const secondDate = tomorrow.toLocaleDateString("en-GB");
+
+if (
+    loginMinutes !== null &&
+    logoutMinutes !== null &&
+    logoutMinutes < loginMinutes
+) {
+    $("reportDate").value = `${firstDate} + ${secondDate}`;
+} else {
+    $("reportDate").value = firstDate;
+}
 
     if (!login || !logout || !duration) {
         setStatus("SOME ATTENDANCE DATA IS MISSING", "error");
