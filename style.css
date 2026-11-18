@@ -753,7 +753,7 @@ footer span {
     width: 280px;
     height: 280px;
     top: 50%;
-    right: 600px;
+    right: 350px;
     transform: translateY(-50%);
     z-index: -1;
     opacity: 0.65;
