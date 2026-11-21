@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPD | Tools Center</title>
+<title>LSPD | Officer Tools</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -39,8 +39,8 @@
             </div>
 
             <div class="header-info">
-                <h1>LSPD BOLETO COUNTY</h1>
-                <p>OFFICER TOOLS CENTER</p>
+                <h1>إدارة شرطة لوس والموانئ</h1>
+                <p>OFFICER TOOLS & SERVICES</p>
 
                 <div class="system-status">
                     <span class="online-dot"></span>
@@ -55,19 +55,12 @@
                 <strong>صقر الجبالي</strong>
                 <p>UNDER SUPERVISION</p>
                 <strong>علي العنزي</strong>
+                <strong>يحيي الحارثي </strong>
             </div>
 
         </header>
 
-        <nav class="page-navigation">
-            <a href="index.html" class="nav-link">
-                ATTENDANCE CONTROL
-            </a>
-
-            <a href="tools.html" class="nav-link active">
-                LSPD TOOLS
-            </a>
-        </nav>
+        
 
         <div class="welcome">
             <div>
@@ -84,7 +77,7 @@
 
                 <div class="panel-title">
                     <span class="title-icon">◷</span>
-                    <h2>LSPD TIME CONVERTER</h2>
+                    <h2>تـحـويـل الـســاعــات</h2>
                 </div>
 
                 <p class="description">
@@ -167,5 +160,37 @@
     </div>
 
     <script src="tools.js"></script>
-</body>
-</html>
+ 
+
+<script>
+const music = document.getElementById("backgroundMusic");
+
+music.volume = 0.35;
+
+const savedPosition = sessionStorage.getItem("musicPosition");
+
+music.addEventListener("loadedmetadata", async function() {
+
+    if (savedPosition !== null) {
+        music.currentTime = Number(savedPosition);
+        sessionStorage.removeItem("musicPosition");
+    }
+
+    try {
+        await music.play();
+    } catch (error) {
+        const playButton = document.createElement("button");
+
+        playButton.textContent = "▶ تشغيل الموسيقى";
+        playButton.className = "music-play-button";
+
+        playButton.onclick = function() {
+            music.play();
+            playButton.remove();
+        };
+
+        document.body.appendChild(playButton);
+    }
+
+}, { once: true });
+</script>

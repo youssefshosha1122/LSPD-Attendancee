@@ -1,11 +1,11 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPD | Attendance Control</title>
-    <link rel="stylesheet" href="style.css">
+    <title>LSPD | Welcome</title>
+    <link rel="stylesheet" href="welcome.css">
 </head>
 <body>
 
@@ -13,204 +13,126 @@
         <div class="light red-light"></div>
         <div class="light blue-light"></div>
     </div>
-<div class="radar-effect">
-    <div class="radar-circle">
-        <div class="radar-sweep"></div>
-        <div class="radar-dot dot-one"></div>
-        <div class="radar-dot dot-two"></div>
-        <div class="radar-dot dot-three"></div>
-    </div>
-</div>
-    <div class="container">
 
-      
-<header class="header">
-  
-<div class="badge-logo">
-    <div class="badge-inner">
-        <span class="badge-star">★</span>
-        <strong>LSPD</strong>
-        <span class="badge-divider"></span>
-        <small>BOLETO</small>
-        <small>COUNTY</small>
-        <div class="badge-bottom">★ ★ ★</div>
-    </div>
-</div>
+    <main class="welcome-screen">
 
-
-    <div class="header-info">
-        <h1>LSPD BOLETO COUNTY</h1>
-        <p>ATTENDANCE CONTROL SYSTEM</p>
-
-        <div class="system-status">
-            <span class="online-dot"></span>
-            SYSTEM ONLINE
-        </div>
-    </div>
-
-    <div class="clock" id="liveClock">00:00:00</div>
-    <div class="developer-info">
-    <p>DEVELOPED BY</p>
-    <strong>صقر الجبالي</strong>
-    <p>UNDER SUPERVISION</p>
-    <strong>علي العنزي</strong>
-    
-</div>
-</header>
-<nav class="page-navigation">
-    <a href="index.html" class="nav-link active">
-        ATTENDANCE CONTROL
-    </a>
-
-    <a href="tools.html" class="nav-link">
-        LSPD TOOLS
-    </a>
-</nav>
-
-        <div class="welcome">
-            <div>
-                <h2>OFFICER ATTENDANCE PORTAL</h2>
-                <p>Employee duty records and attendance management</p>
+        <div class="badge-logo">
+            <div class="badge-inner">
+                <span class="badge-star">★</span>
+                <strong>LSPD</strong>
+                <span class="badge-divider"></span>
+                <small>BOLETO</small>
+                <small>COUNTY</small>
+                <div class="badge-bottom">★ ★ ★</div>
             </div>
-            <div class="portal-tag">INTERNAL SYSTEM</div>
         </div>
 
-        <main class="dashboard">
+      <h1>إدارة شرطة لوس والموانئ</h1>
 
-            <!-- Message Input -->
-            <section class="panel input-panel">
+        <p class="welcome-text">
+            مرحبًا بك في إدارة شرطة مقاطعة بوليتو.
+        </p>
+<button class="enter-btn" id="enterSystem">
+    ENTER SYSTEM
+</button>
+        <footer>
+            <p>DEVELOPED BY</p>
+            <strong>صقر الجبالي</strong>
 
-                <div class="panel-title">
-                    <span class="title-icon">▣</span>
-                    <h2>MESSAGE INPUT</h2>
-                </div>
+            <p>UNDER SUPERVISION</p>
+            <strong>علي العنزي</strong>
+            <strong>يحيي الحارثي </strong>
+        </footer>
 
-                <p class="description">
-                    Paste the Discord attendance message below.
-                </p>
+    </main>
+<div id="toolsContainer" style="
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+">
+    <iframe
+        id="toolsFrame"
+        style="width: 100%; height: 100%; border: none;"
+        allow="autoplay"
+    ></iframe>
+</div>
+<script>
+const enterButton = document.getElementById("enterSystem");
+const toolsContainer = document.getElementById("toolsContainer");
+const toolsFrame = document.getElementById("toolsFrame");
 
-                <label for="discordMessage">DISCORD MESSAGE CONTENT</label>
+enterButton.addEventListener("click", function(event) {
+    event.preventDefault();
 
-                <textarea
-                    id="discordMessage"
-                    placeholder="Paste Discord message here..."
-                ></textarea>
+    document.body.classList.add("page-exit");
 
-                <label for="messageLink" class="link-label">
-                    DISCORD MESSAGE LINK
-                </label>
+    setTimeout(function() {
+        toolsFrame.src = "tools.html";
 
-                <input
-                    id="messageLink"
-                    class="link-input"
-                    type="url"
-                    placeholder="https://discord.com/channels/..."
-                    dir="ltr"
-                >
+        document.body.classList.remove("page-exit");
+        document.querySelector(".welcome-screen").style.display = "none";
 
-                <button id="extractBtn" class="primary-btn">
-                    <span>⌕</span> EXTRACT RECORD
-                </button>
+        toolsContainer.style.display = "block";
+    }, 800);
+});
+</script>
 
-                <div id="messageStatus" class="message-status">
-                    <span class="status-dot"></span>
-                    WAITING FOR INPUT...
-                </div>
+<audio id="backgroundMusic" loop>
+    <source src="police-theme.mp3" type="audio/mpeg">
+</audio>
+<button id="musicToggle" style="
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 10001;
+    padding: 12px 20px;
+    background: rgba(10, 25, 50, 0.95);
+    color: #e5c477;
+    border: 1px solid #e5c477;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+">
+    ⏸ إيقاف الموسيقى
+</button>
 
-            </section>
+<script>
+const music = document.getElementById("backgroundMusic");
 
-            <!-- Attendance Report -->
-            <section class="panel report-panel">
+music.volume = 0.35;
 
-                <div class="panel-title">
-                    <span class="title-icon">▤</span>
-                    <h2>OFFICER DUTY REPORT</h2>
-                </div>
+music.play().catch(() => {
+    document.addEventListener("click", function startMusic() {
+        music.play();
+    }, { once: true });
+});
+</script>
 
-                <div class="report-fields">
+<script>
+const musicToggle = document.getElementById("musicToggle");
 
-                    <div class="field">
-                        <label>اسم الموظف</label>
-                        <input id="employeeName" placeholder="اسم الموظف" dir="rtl" readonly>
-                    </div>
+musicToggle.addEventListener("click", function() {
+    if (music.paused) {
+        music.play();
+        musicToggle.textContent = "⏸ إيقاف الموسيقى";
+    } else {
+        music.pause();
+        musicToggle.textContent = "▶ تشغيل الموسيقى";
+    }
+});
 
-                    <div class="field">
-                        <label>الرتبة الحالية</label>
-                        <input id="rank" placeholder="الرتبة" dir="rtl" readonly>
-                    </div>
+music.addEventListener("play", function() {
+    musicToggle.textContent = "⏸ إيقاف الموسيقى";
+});
 
-                    <div class="field">
-                        <label>تسجيل الدخول</label>
-                        <input id="loginTime" placeholder="وقت الدخول" dir="rtl" readonly>
-                    </div>
+music.addEventListener("pause", function() {
+    musicToggle.textContent = "▶ تشغيل الموسيقى";
+});
+</script>
 
-                    <div class="field">
-                        <label>تسجيل الخروج</label>
-                        <input id="logoutTime" placeholder="وقت الخروج" dir="rtl" readonly>
-                    </div>
-
-                    <div class="field">
-                        <label>مجموع وقت المباشرة</label>
-                        <input id="workDuration" placeholder="مدة المباشرة" dir="rtl" readonly>
-                    </div>
-
-                    <div class="field">
-                        <label>مجموع وقت اليوم</label>
-                        <input id="dailyTotal" placeholder="مجموع اليوم" dir="rtl" readonly>
-                    </div>
-
-                    <div class="field">
-                        <label>مجموع وقت الأسبوع</label>
-                        <input id="weeklyTotal" placeholder="مجموع الأسبوع" dir="rtl" readonly>
-                    </div>
-
-                    <div class="field">
-                        <label>مجموع وقت الشهر</label>
-                        <input id="monthlyTotal" placeholder="مجموع الشهر" dir="rtl" readonly>
-                    </div>
-
-                    <div class="field full-width">
-                        <label>صورة الحالة إن وجدت</label>
-                        <input id="statusImage" placeholder="رابط الصورة" dir="ltr">
-                    </div>
-
-                    <div class="field full-width">
-                        <label>تاريخ اليوم</label>
-                        <input id="reportDate" placeholder="التاريخ" dir="rtl" readonly>
-                    </div>
-
-                </div>
-
-                <div class="report-actions">
-                    <button id="copyBtn" class="copy-btn">
-                        ▣ COPY DUTY REPORT
-                    </button>
-
-                    <button id="clearBtn" class="clear-btn">
-                        CLEAR FORM
-                    </button>
-                </div>
-
-            </section>
-
-        </main>
-
-
-        
-<footer>
-    <div class="footer-line"></div>
-
-    <p>LSPD BOLETO COUNTY</p>
-    <span>AUTHORIZED PERSONNEL ONLY</span>
-
-   
-
-    <p class="footer-version">LSPD ATTENDANCE SYSTEM v1.0</p>
-</footer>
-
-
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
