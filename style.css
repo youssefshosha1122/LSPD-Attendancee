@@ -753,9 +753,9 @@ footer span {
     width: 280px;
     height: 280px;
     top: 50%;
-    right: clamp(20px, 12vw, 180px);
+    right: 500px;
     transform: translateY(-50%);
-    z-index: 0;
+    z-index: -1;
     opacity: 0.65;
     pointer-events: none;
 }
@@ -883,4 +883,64 @@ body::after {
 .container {
     position: relative;
     z-index: 1;
+}
+
+
+
+
+/* LSPD Tools Layout */
+.tools-dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+    align-items: start;
+}
+
+.tools-dashboard .panel {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    .tools-dashboard {
+        grid-template-columns: 1fr;
+    }
+}/* Table Calculator Results */
+.table-result {
+    margin-top: 25px;
+    padding: 18px;
+    background: rgba(0, 140, 255, 0.08);
+    border: 1px solid rgba(0, 140, 255, 0.35);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.result-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.result-row strong {
+    font-size: 15px;
+    color: #aebed0;
+    letter-spacing: 1px;
+}
+
+.result-row span {
+    font-size: 27px;
+    font-weight: 700;
+    color: #38aaff;
+    text-shadow: 0 0 12px rgba(0, 140, 255, 0.5);
+    direction: ltr;
+}
+
+#newTableNumber {
+    font-size: 38px;
+    color: #00ffb3;
+    text-shadow: 0 0 15px rgba(0, 255, 179, 0.5);
 }
