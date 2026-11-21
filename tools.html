@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSPD | Tools Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="lightbar">
+        <div class="light red-light"></div>
+        <div class="light blue-light"></div>
+    </div>
+
+    <div class="radar-effect">
+        <div class="radar-circle">
+            <div class="radar-sweep"></div>
+            <div class="radar-dot dot-one"></div>
+            <div class="radar-dot dot-two"></div>
+            <div class="radar-dot dot-three"></div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <header class="header">
+
+            <div class="badge-logo">
+                <div class="badge-inner">
+                    <span class="badge-star">★</span>
+                    <strong>LSPD</strong>
+                    <span class="badge-divider"></span>
+                    <small>BOLETO</small>
+                    <small>COUNTY</small>
+                    <div class="badge-bottom">★ ★ ★</div>
+                </div>
+            </div>
+
+            <div class="header-info">
+                <h1>LSPD BOLETO COUNTY</h1>
+                <p>OFFICER TOOLS CENTER</p>
+
+                <div class="system-status">
+                    <span class="online-dot"></span>
+                    SYSTEM ONLINE
+                </div>
+            </div>
+
+            <div class="clock" id="liveClock">00:00:00</div>
+
+            <div class="developer-info">
+                <p>DEVELOPED BY</p>
+                <strong>صقر الجبالي</strong>
+                <p>UNDER SUPERVISION</p>
+                <strong>علي العنزي</strong>
+            </div>
+
+        </header>
+
+        <nav class="page-navigation">
+            <a href="index.html" class="nav-link">
+                ATTENDANCE CONTROL
+            </a>
+
+            <a href="tools.html" class="nav-link active">
+                LSPD TOOLS
+            </a>
+        </nav>
+
+        <div class="welcome">
+            <div>
+                <h2>LSPD TOOLS CENTER</h2>
+                <p>Time conversion and table calculation tools</p>
+            </div>
+            <div class="portal-tag">INTERNAL SYSTEM</div>
+        </div>
+
+        <main class="tools-dashboard">
+
+            <!-- Time Converter -->
+            <section class="panel time-converter-panel">
+
+                <div class="panel-title">
+                    <span class="title-icon">◷</span>
+                    <h2>LSPD TIME CONVERTER</h2>
+                </div>
+
+                <p class="description">
+                    Convert standard time to LSPD 100-minute time.
+                </p>
+
+                <div class="field">
+                    <label>STANDARD TIME</label>
+                    <input id="standardTime" type="text"
+                        placeholder="1:30" dir="ltr">
+                </div>
+
+               <div class="table-result">
+    <div class="result-row">
+        <strong>LSPD TIME:</strong>
+        <span id="lspdTime">00:00</span>
+    </div>
+</div>
+                <button id="convertTimeBtn" class="primary-btn">
+                    ⟳ CONVERT TIME
+                </button>
+
+            </section>
+
+            <!-- Table Calculator -->
+            <section class="panel table-calculator-panel">
+
+                <div class="panel-title">
+                    <span class="title-icon">▤</span>
+                    <h2>اداه الــرصــد</h2>
+                </div>
+
+                <p class="description">
+                    Calculate the updated table balance.
+                </p>
+
+                <div class="field">
+                    <label>رصيد الضابط المسجل بالجدول</label>
+                    <input id="currentTable" type="number"
+                        step="any" placeholder="Example: 100">
+                </div>
+
+                <label>وقت اللعب المُرسل في التقرير</label>
+
+                <div class="table-time-inputs">
+                    <input id="playHours" type="number"
+                        min="0" placeholder="Hours">
+
+                    <input id="playMinutes" type="number"
+                        min="0" max="59" placeholder="Minutes">
+                </div>
+
+                <button id="calculateTableBtn" class="primary-btn">
+                    ⟳ CALCULATE TABLE
+                </button>
+
+                <div class="table-result">
+                    <div class="result-row">
+                        <strong>الـــوقـــت الـــمــحــول</strong>
+                        <span id="convertedPlayTime">0.00</span>
+                    </div>
+
+                    <div class="result-row">
+                        <strong>الـــرقــــم الــجــديــد لـلـجــدول</strong>
+                        <span id="newTableNumber">0.00</span>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="footer-line"></div>
+            <p>LSPD BOLETO COUNTY</p>
+            <span>AUTHORIZED PERSONNEL ONLY</span>
+            <p class="footer-version">LSPD TOOLS SYSTEM v1.0</p>
+        </footer>
+
+    </div>
+
+    <script src="tools.js"></script>
+</body>
+</html>

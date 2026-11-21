@@ -57,7 +57,15 @@
     
 </div>
 </header>
+<nav class="page-navigation">
+    <a href="index.html" class="nav-link active">
+        ATTENDANCE CONTROL
+    </a>
 
+    <a href="tools.html" class="nav-link">
+        LSPD TOOLS
+    </a>
+</nav>
 
         <div class="welcome">
             <div>
@@ -186,81 +194,6 @@
             </section>
 
         </main>
-        
-<!-- LSPD Tools Dashboard -->
-<div class="tools-dashboard">
-
-    <!-- Time Converter -->
-    <section class="panel time-converter-panel">
-
-        <div class="panel-title">
-            <span class="title-icon">◷</span>
-            <h2>LSPD TIME CONVERTER</h2>
-        </div>
-
-        <p class="description">
-            Convert standard time to LSPD 100-minute time.
-        </p>
-
-        <div class="field">
-            <label>STANDARD TIME</label>
-            <input id="standardTime" type="text" placeholder="1:30" dir="ltr">
-        </div>
-
-        <div class="field">
-            <label>LSPD TIME</label>
-            <input id="lspdTime" type="text" placeholder="1:50" dir="ltr" readonly>
-        </div>
-
-        <button id="convertTimeBtn" class="primary-btn">
-            ⟳ CONVERT TIME
-        </button>
-
-    </section>
-
-    <!-- Table Calculator -->
-    <section class="panel table-calculator-panel">
-
-        <div class="panel-title">
-            <span class="title-icon">▤</span>
-            <h2>اداه رصـــد</h2>
-        </div>
-
-        <p class="description">
-            Calculate the updated table balance.
-        </p>
-
-        <div class="field">
-            <label>الساعات الي بالجدول</label>
-            <input id="currentTable" type="number" step="any" placeholder="Example: 50">
-        </div>
-
-        <label>وقت الدوام</label>
-
-        <div class="table-time-inputs">
-            <input id="playHours" type="number" min="0" placeholder="Hours">
-            <input id="playMinutes" type="number" min="0" max="59" placeholder="Minutes">
-        </div>
-
-        <button id="calculateTableBtn" class="primary-btn">
-            ⟳ CALCULATE TABLE
-        </button>
-
-        <div class="table-result">
-            <div class="result-row">
-                <strong>مــجــموع وقــت الــدوام:</strong>
-                <span id="convertedPlayTime">0.00</span>
-            </div>
-
-            <div class="result-row">
-                <strong>رفــم الــجــدول الــجــديـد </strong>
-                <span id="newTableNumber">0.00</span>
-            </div>
-        </div>
-
-    </section>
-
-</div>
 
 
         

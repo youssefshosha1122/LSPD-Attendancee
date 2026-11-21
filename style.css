@@ -926,13 +926,13 @@ body::after {
 }
 
 .result-row strong {
-    font-size: 15px;
+    font-size: 18px;
     color: #aebed0;
     letter-spacing: 1px;
 }
 
 .result-row span {
-    font-size: 27px;
+    font-size: 30px;
     font-weight: 700;
     color: #38aaff;
     text-shadow: 0 0 12px rgba(0, 140, 255, 0.5);
@@ -943,4 +943,44 @@ body::after {
     font-size: 38px;
     color: #00ffb3;
     text-shadow: 0 0 15px rgba(0, 255, 179, 0.5);
+}/* LSPD Page Navigation */
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+    padding: 12px;
+    background: rgba(10, 20, 35, 0.8);
+    border: 1px solid rgba(0, 140, 255, 0.25);
+    border-radius: 12px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #aebed0;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff;
+    background: rgba(0, 140, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.25);
+    border: 1px solid rgba(0, 140, 255, 0.4);
+}
+
+@media (max-width: 600px) {
+    .page-navigation {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        text-align: center;
+    }
 }
