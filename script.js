@@ -254,3 +254,21 @@ $("copyBtn").addEventListener("click", copyReport);
 
 $("clearBtn").addEventListener("click", clearForm);
 
+// LSPD Background Music
+const music = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+if (music && musicToggle) {
+    musicToggle.addEventListener("click", function () {
+        if (music.paused) {
+            music.play().then(() => {
+                musicToggle.textContent = "⏸ MUSIC ON";
+            }).catch(() => {
+                musicToggle.textContent = "▶ MUSIC OFF";
+            });
+        } else {
+            music.pause();
+            musicToggle.textContent = "▶ MUSIC OFF";
+        }
+    });
+}
